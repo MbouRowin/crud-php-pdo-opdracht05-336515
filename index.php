@@ -3,25 +3,20 @@
 require_once "database.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $kleur1 = $_POST["kleur-1"] ?? "";
-    $kleur2 = $_POST["kleur-2"] ?? "";
-    $kleur3 = $_POST["kleur-3"] ?? "";
-    $kleur4 = $_POST["kleur-4"] ?? "";
-    $basiskleuren = implode(", ", [$kleur1, $kleur2, $kleur3, $kleur4]);
-    $tel = $_POST["tel"] ?? "";
+    $homeclub = $_POST["homeclub"] ?? "";
+    $lidmaatschap = $_POST["lidmaatschap"] ?? "";
+    $looptijd = $_POST["looptijd"] ?? "";
+    $extra = $_POST["extra"] ?? [];
+    $extra = implode(", ", $extra);
     $email = $_POST["email"] ?? "";
-    $afspraakdatum = $_POST["datum"] ?? "";
-    $behandeling = $_POST["behandeling"] ?? [];
-    $behandeling = implode(", ", $behandeling);
-    $now = $_POST["now"] ?? "";
 
-    $stmt = $pdo->prepare("INSERT INTO afspraak VALUES (NULL, ?, ?, ?, ?, ?, ?)");
-    $stmt->bindValue(1, $basiskleuren);
-    $stmt->bindValue(2, $tel);
-    $stmt->bindValue(3, $email);
-    $stmt->bindValue(4, $afspraakdatum);
-    $stmt->bindValue(5, $behandeling);
-    $stmt->bindValue(6, $now);
+    $stmt = $pdo->prepare("INSERT INTO inschrijving VALUES (NULL, ?, ?, ?, ?, ?)");
+    $stmt->bindValue(1, $homeclub);
+    $stmt->bindValue(2, $lidmaatschap);
+    $stmt->bindValue(3, $looptijd);
+    $stmt->bindValue(4, $extra);
+    $stmt->bindValue(5, $email);
+
 
     $stmt->execute();
 
