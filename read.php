@@ -2,7 +2,7 @@
 
 require_once "database.php";
 
-$stmt = $pdo->query("SELECT * from afspraak ORDER BY afspraakdatum DESC");
+$stmt = $pdo->query("SELECT * from inschrijving");
 
 ?>
 <!doctype html>
@@ -11,34 +11,32 @@ $stmt = $pdo->query("SELECT * from afspraak ORDER BY afspraakdatum DESC");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Afspraken</title>
+    <title>Inschrijvingen</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container">
-        <h1 class="text-center">Afspraken</h1>
+        <h1 class="text-center">Inschrijvingen</h1>
         <a href="index.php">Create</a>
 
         <table class="table">
             <tr>
                 <th>ID</th>
-                <th>Basiskleuren</th>
-                <th>Telefoonnummer</th>
+                <th>Homeclub</th>
+                <th>Lidmaatschap</th>
+                <th>Looptijd</th>
+                <th>Extra</th>
                 <th>Email</th>
-                <th>Afspraakdatum</th>
-                <th>Behandeling</th>
-                <th>Datum</th>
             </tr>
             <?php while ($row = $stmt->fetch()) : ?>
                 <tr>
                     <td><?= htmlspecialchars($row["id"]) ?></td>
-                    <td><?= htmlspecialchars($row["basiskleuren"]) ?></td>
-                    <td><?= htmlspecialchars($row["tel"]) ?></td>
+                    <td><?= htmlspecialchars($row["homeclub"]) ?></td>
+                    <td><?= htmlspecialchars($row["lidmaatschap"]) ?></td>
+                    <td><?= htmlspecialchars($row["looptijd"]) ?></td>
+                    <td><?= htmlspecialchars($row["extra"]) ?></td>
                     <td><?= htmlspecialchars($row["email"]) ?></td>
-                    <td><?= htmlspecialchars($row["afspraakdatum"]) ?></td>
-                    <td><?= htmlspecialchars($row["behandeling"]) ?></td>
-                    <td><?= htmlspecialchars($row["datum"]) ?></td>
                     <td><a href="update.php?id=<?= $row["id"] ?>">Update</a></td>
                     <td><a href="delete.php?id=<?= $row["id"] ?>">Delete</a></td>
                 </tr>
