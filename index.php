@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->bindValue(4, $extra);
     $stmt->bindValue(5, $email);
 
-
     $stmt->execute();
 
     header("Refresh: 2; url=/read.php");
@@ -59,13 +58,13 @@ $vestigingen = $pdo->query("SELECT * FROM vestiging");
                     Selecteer een lidmaatschap:
 
                     <div class="mt-1">
-                        <input type="radio" name="lidmaatschap" id="comfort">
+                        <input type="radio" name="lidmaatschap" id="comfort" value="Comfort">
                         <label for="comfort">Comfort</label>
 
-                        <input type="radio" name="lidmaatschap" id="premium">
+                        <input type="radio" name="lidmaatschap" id="premium" value="Premium">
                         <label for="premium">Premium</label>
 
-                        <input type="radio" name="lidmaatschap" id="all-in">
+                        <input type="radio" name="lidmaatschap" id="all-in" value="All in">
                         <label for="all-in">All in</label>
                     </div>
                 </div>
@@ -74,10 +73,10 @@ $vestigingen = $pdo->query("SELECT * FROM vestiging");
                     Selecteer een looptijd:
 
                     <div class="mt-1">
-                        <input type="radio" name="looptijd" id="jaar">
+                        <input type="radio" name="looptijd" id="jaar" value="Jaarlidmaatschap">
                         <label for="jaar">Jaarlidmaatschap</label>
 
-                        <input type="radio" name="looptijd" id="flex">
+                        <input type="radio" name="looptijd" id="flex" value="Flex optie">
                         <label for="flex">Flex optie</label>
                     </div>
                 </div>
