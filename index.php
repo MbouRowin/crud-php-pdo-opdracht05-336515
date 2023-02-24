@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute();
 
     header("Refresh: 2; url=/read.php");
-    die("De afspraak is aangemaakt.");
+    die("De inschrijving is aangemaakt.");
 }
 
 $vestigingen = $pdo->query("SELECT * FROM vestiging");
